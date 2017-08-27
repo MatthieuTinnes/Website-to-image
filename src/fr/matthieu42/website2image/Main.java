@@ -20,10 +20,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        for(int i =0 ; i <= 3 ; i++){
+            if(getParameters().getRaw().get(i) == null){
+                System.out.println("Usage : java -jar Website-to-image.jar [website] [delay] [Screenshot width] [Screenshot height]");
+                return;
+            }
+        }
         String webPage = getParameters().getRaw().get(0);
         int delay = Integer.parseInt(getParameters().getRaw().get(1));
         int width = Integer.parseInt(getParameters().getRaw().get(2));
         int height = Integer.parseInt(getParameters().getRaw().get(3));
+
         System.out.println("Screen of " + webPage + "with a delay of " + delay + " milliseconds and a size of " + width + "x" + height);
         WebView webView = new WebView();
         webView.setPrefSize(width, height);
