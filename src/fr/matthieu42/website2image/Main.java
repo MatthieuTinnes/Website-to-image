@@ -31,7 +31,7 @@ public class Main extends Application {
         int width = Integer.parseInt(getParameters().getRaw().get(2));
         int height = Integer.parseInt(getParameters().getRaw().get(3));
 
-        System.out.println("Screen of " + webPage + "with a delay of " + delay + " milliseconds and a size of " + width + "x" + height);
+        System.out.println("Screen of " + webPage + " with a delay of " + delay + " milliseconds and a size of " + width + "x" + height);
         WebView webView = new WebView();
         webView.setPrefSize(width, height);
         ScrollPane pane = new ScrollPane();
@@ -54,10 +54,10 @@ public class Main extends Application {
                                 e.printStackTrace();
                             }
                         });
+                        timer.cancel();
                     }
                 };
                 timer.schedule(waitForJSLoad, delay);
-
             }
         });
         webView.getEngine().load(webPage);
